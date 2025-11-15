@@ -2,7 +2,11 @@ package com.pagui.despiertate.base;
 
 import java.time.LocalDate;
 
-public class Bebidas {
+/**
+ * Clase base abstracta para las bebidas de la aplicación DespiertaTe.
+ * Contiene los datos comunes a cafés y tés.
+ */
+public abstract class Bebidas {
 
     private String codigo;
     private String nombre;
@@ -10,10 +14,21 @@ public class Bebidas {
     private double precioKg;
     private LocalDate fechaConsPref;
 
+    /**
+     * Constructor por defecto.
+     */
     public Bebidas() {
-
     }
 
+    /**
+     * Constructor completo.
+     *
+     * @param codigo        código identificador de la bebida
+     * @param nombre        nombre comercial
+     * @param origen        origen o procedencia
+     * @param precioKg      precio por kilogramo
+     * @param fechaConsPref fecha de consumo preferente
+     */
     public Bebidas(String codigo, String nombre, String origen, double precioKg, LocalDate fechaConsPref) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -60,5 +75,14 @@ public class Bebidas {
 
     public void setFechaConsPref(LocalDate fechaConsPref) {
         this.fechaConsPref = fechaConsPref;
+    }
+
+    @Override
+    public String toString() {
+        return "Código: " + codigo +
+                ", Nombre: " + nombre +
+                ", Origen: " + origen +
+                ", Precio/kg: " + precioKg +
+                ", Cons. preferente: " + fechaConsPref;
     }
 }
